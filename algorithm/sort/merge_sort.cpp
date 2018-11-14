@@ -9,7 +9,7 @@ void merge(int* A, int lo, int mi, int hi)
 
     while(i <= m && j <= n)
     {
-        if(i < j)
+        if(A[i] < A[j])
         {
             tmp[k++] = A[i++];
         }else
@@ -27,12 +27,12 @@ void merge(int* A, int lo, int mi, int hi)
         tmp[k++] = A[j++];
     }
 
-    i = lo;
-    k = 0;
-    while(i <= n)
+    // 回写
+    for(int i = 0; i < k; i++)
     {
-        A[i++] = tmp[k++];
+        A[lo + i] = tmp[i];
     }
+    
 }
 
 void merge_sort(int* A, int lo, int hi)
